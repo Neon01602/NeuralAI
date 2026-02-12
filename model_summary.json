@@ -1,0 +1,9269 @@
+{
+  "model_name": "Transfer_CNN_RNN_Hybrid",
+  "inputs": [
+    [
+      -1,
+      224,
+      224,
+      3
+    ]
+  ],
+  "outputs": [
+    [
+      -1,
+      1
+    ]
+  ],
+  "layers": [
+    {
+      "name": "input_layer",
+      "type": "InputLayer",
+      "input_tensor_shape": [],
+      "output_tensor_shape": [
+        -1,
+        224,
+        224,
+        3
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=input_layer, id=1368438662640>"
+      ]
+    },
+    {
+      "name": "zero_padding2d",
+      "type": "ZeroPadding2D",
+      "input_tensor_shape": [
+        -1,
+        224,
+        224,
+        3
+      ],
+      "output_tensor_shape": [
+        -1,
+        230,
+        230,
+        3
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=zero_padding2d, id=1368498555968>"
+      ]
+    },
+    {
+      "name": "conv1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        230,
+        230,
+        3
+      ],
+      "output_tensor_shape": [
+        -1,
+        112,
+        112,
+        64
+      ],
+      "params": 9408,
+      "inbound_nodes": [
+        "<Node operation=conv1_conv, id=1368498555488>"
+      ]
+    },
+    {
+      "name": "conv1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        112,
+        112,
+        64
+      ],
+      "output_tensor_shape": [
+        -1,
+        112,
+        112,
+        64
+      ],
+      "params": 256,
+      "inbound_nodes": [
+        "<Node operation=conv1_bn, id=1368498557072>"
+      ]
+    },
+    {
+      "name": "conv1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        112,
+        112,
+        64
+      ],
+      "output_tensor_shape": [
+        -1,
+        112,
+        112,
+        64
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv1_relu, id=1368498556304>"
+      ]
+    },
+    {
+      "name": "zero_padding2d_1",
+      "type": "ZeroPadding2D",
+      "input_tensor_shape": [
+        -1,
+        112,
+        112,
+        64
+      ],
+      "output_tensor_shape": [
+        -1,
+        114,
+        114,
+        64
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=zero_padding2d_1, id=1368498556976>"
+      ]
+    },
+    {
+      "name": "pool1",
+      "type": "MaxPooling2D",
+      "input_tensor_shape": [
+        -1,
+        114,
+        114,
+        64
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        64
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=pool1, id=1368498558128>"
+      ]
+    },
+    {
+      "name": "conv2_block1_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        64
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        64
+      ],
+      "params": 256,
+      "inbound_nodes": [
+        "<Node operation=conv2_block1_0_bn, id=1368498559424>"
+      ]
+    },
+    {
+      "name": "conv2_block1_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        64
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        64
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block1_0_relu, id=1368498559136>"
+      ]
+    },
+    {
+      "name": "conv2_block1_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        64
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 8192,
+      "inbound_nodes": [
+        "<Node operation=conv2_block1_1_conv, id=1368498559232>"
+      ]
+    },
+    {
+      "name": "conv2_block1_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv2_block1_1_bn, id=1368498561920>"
+      ]
+    },
+    {
+      "name": "conv2_block1_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block1_1_relu, id=1368498560960>"
+      ]
+    },
+    {
+      "name": "conv2_block1_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv2_block1_2_conv, id=1368498561824>"
+      ]
+    },
+    {
+      "name": "conv2_block1_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          56,
+          56,
+          64
+        ],
+        [
+          -1,
+          56,
+          56,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        96
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block1_concat, id=1368498564416>"
+      ]
+    },
+    {
+      "name": "conv2_block2_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        96
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        96
+      ],
+      "params": 384,
+      "inbound_nodes": [
+        "<Node operation=conv2_block2_0_bn, id=1368498564800>"
+      ]
+    },
+    {
+      "name": "conv2_block2_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        96
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        96
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block2_0_relu, id=1368498564656>"
+      ]
+    },
+    {
+      "name": "conv2_block2_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        96
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 12288,
+      "inbound_nodes": [
+        "<Node operation=conv2_block2_1_conv, id=1368498564752>"
+      ]
+    },
+    {
+      "name": "conv2_block2_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv2_block2_1_bn, id=1368498567248>"
+      ]
+    },
+    {
+      "name": "conv2_block2_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block2_1_relu, id=1368498566288>"
+      ]
+    },
+    {
+      "name": "conv2_block2_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv2_block2_2_conv, id=1368498567152>"
+      ]
+    },
+    {
+      "name": "conv2_block2_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          56,
+          56,
+          96
+        ],
+        [
+          -1,
+          56,
+          56,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block2_concat, id=1368498569072>"
+      ]
+    },
+    {
+      "name": "conv2_block3_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv2_block3_0_bn, id=1368498717600>"
+      ]
+    },
+    {
+      "name": "conv2_block3_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block3_0_relu, id=1368498718656>"
+      ]
+    },
+    {
+      "name": "conv2_block3_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 16384,
+      "inbound_nodes": [
+        "<Node operation=conv2_block3_1_conv, id=1368498719136>"
+      ]
+    },
+    {
+      "name": "conv2_block3_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv2_block3_1_bn, id=1368498720000>"
+      ]
+    },
+    {
+      "name": "conv2_block3_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block3_1_relu, id=1368498721152>"
+      ]
+    },
+    {
+      "name": "conv2_block3_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv2_block3_2_conv, id=1368498721632>"
+      ]
+    },
+    {
+      "name": "conv2_block3_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          56,
+          56,
+          128
+        ],
+        [
+          -1,
+          56,
+          56,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        160
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block3_concat, id=1368498722592>"
+      ]
+    },
+    {
+      "name": "conv2_block4_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        160
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        160
+      ],
+      "params": 640,
+      "inbound_nodes": [
+        "<Node operation=conv2_block4_0_bn, id=1368498722928>"
+      ]
+    },
+    {
+      "name": "conv2_block4_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        160
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        160
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block4_0_relu, id=1368498723984>"
+      ]
+    },
+    {
+      "name": "conv2_block4_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        160
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 20480,
+      "inbound_nodes": [
+        "<Node operation=conv2_block4_1_conv, id=1368498724464>"
+      ]
+    },
+    {
+      "name": "conv2_block4_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv2_block4_1_bn, id=1368498725328>"
+      ]
+    },
+    {
+      "name": "conv2_block4_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block4_1_relu, id=1368498726480>"
+      ]
+    },
+    {
+      "name": "conv2_block4_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv2_block4_2_conv, id=1368498726960>"
+      ]
+    },
+    {
+      "name": "conv2_block4_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          56,
+          56,
+          160
+        ],
+        [
+          -1,
+          56,
+          56,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        192
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block4_concat, id=1368498727920>"
+      ]
+    },
+    {
+      "name": "conv2_block5_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        192
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        192
+      ],
+      "params": 768,
+      "inbound_nodes": [
+        "<Node operation=conv2_block5_0_bn, id=1368498728256>"
+      ]
+    },
+    {
+      "name": "conv2_block5_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        192
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        192
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block5_0_relu, id=1368498729312>"
+      ]
+    },
+    {
+      "name": "conv2_block5_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        192
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 24576,
+      "inbound_nodes": [
+        "<Node operation=conv2_block5_1_conv, id=1368498729792>"
+      ]
+    },
+    {
+      "name": "conv2_block5_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv2_block5_1_bn, id=1368498730656>"
+      ]
+    },
+    {
+      "name": "conv2_block5_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block5_1_relu, id=1368498731808>"
+      ]
+    },
+    {
+      "name": "conv2_block5_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv2_block5_2_conv, id=1368498732288>"
+      ]
+    },
+    {
+      "name": "conv2_block5_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          56,
+          56,
+          192
+        ],
+        [
+          -1,
+          56,
+          56,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        224
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block5_concat, id=1368498732576>"
+      ]
+    },
+    {
+      "name": "conv2_block6_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        224
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        224
+      ],
+      "params": 896,
+      "inbound_nodes": [
+        "<Node operation=conv2_block6_0_bn, id=1368498881104>"
+      ]
+    },
+    {
+      "name": "conv2_block6_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        224
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        224
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block6_0_relu, id=1368498882160>"
+      ]
+    },
+    {
+      "name": "conv2_block6_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        224
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 28672,
+      "inbound_nodes": [
+        "<Node operation=conv2_block6_1_conv, id=1368498882640>"
+      ]
+    },
+    {
+      "name": "conv2_block6_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv2_block6_1_bn, id=1368498883504>"
+      ]
+    },
+    {
+      "name": "conv2_block6_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block6_1_relu, id=1368498884656>"
+      ]
+    },
+    {
+      "name": "conv2_block6_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv2_block6_2_conv, id=1368498885136>"
+      ]
+    },
+    {
+      "name": "conv2_block6_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          56,
+          56,
+          224
+        ],
+        [
+          -1,
+          56,
+          56,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        256
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv2_block6_concat, id=1368498886096>"
+      ]
+    },
+    {
+      "name": "pool2_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        256
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        256
+      ],
+      "params": 1024,
+      "inbound_nodes": [
+        "<Node operation=pool2_bn, id=1368498886432>"
+      ]
+    },
+    {
+      "name": "pool2_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        256
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        256
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=pool2_relu, id=1368498887488>"
+      ]
+    },
+    {
+      "name": "pool2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        256
+      ],
+      "output_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "params": 32768,
+      "inbound_nodes": [
+        "<Node operation=pool2_conv, id=1368498887968>"
+      ]
+    },
+    {
+      "name": "pool2_pool",
+      "type": "AveragePooling2D",
+      "input_tensor_shape": [
+        -1,
+        56,
+        56,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=pool2_pool, id=1368498888832>"
+      ]
+    },
+    {
+      "name": "conv3_block1_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv3_block1_0_bn, id=1368498889120>"
+      ]
+    },
+    {
+      "name": "conv3_block1_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block1_0_relu, id=1368498890224>"
+      ]
+    },
+    {
+      "name": "conv3_block1_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 16384,
+      "inbound_nodes": [
+        "<Node operation=conv3_block1_1_conv, id=1368498890704>"
+      ]
+    },
+    {
+      "name": "conv3_block1_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv3_block1_1_bn, id=1368498891568>"
+      ]
+    },
+    {
+      "name": "conv3_block1_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block1_1_relu, id=1368498892720>"
+      ]
+    },
+    {
+      "name": "conv3_block1_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv3_block1_2_conv, id=1368498893200>"
+      ]
+    },
+    {
+      "name": "conv3_block1_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          28,
+          28,
+          128
+        ],
+        [
+          -1,
+          28,
+          28,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        160
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block1_concat, id=1368498894160>"
+      ]
+    },
+    {
+      "name": "conv3_block2_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        160
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        160
+      ],
+      "params": 640,
+      "inbound_nodes": [
+        "<Node operation=conv3_block2_0_bn, id=1368498894496>"
+      ]
+    },
+    {
+      "name": "conv3_block2_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        160
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        160
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block2_0_relu, id=1368498895552>"
+      ]
+    },
+    {
+      "name": "conv3_block2_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        160
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 20480,
+      "inbound_nodes": [
+        "<Node operation=conv3_block2_1_conv, id=1368498896032>"
+      ]
+    },
+    {
+      "name": "conv3_block2_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv3_block2_1_bn, id=1368461579296>"
+      ]
+    },
+    {
+      "name": "conv3_block2_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block2_1_relu, id=1368498996416>"
+      ]
+    },
+    {
+      "name": "conv3_block2_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv3_block2_2_conv, id=1368498996896>"
+      ]
+    },
+    {
+      "name": "conv3_block2_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          28,
+          28,
+          160
+        ],
+        [
+          -1,
+          28,
+          28,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        192
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block2_concat, id=1368498997856>"
+      ]
+    },
+    {
+      "name": "conv3_block3_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        192
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        192
+      ],
+      "params": 768,
+      "inbound_nodes": [
+        "<Node operation=conv3_block3_0_bn, id=1368498998192>"
+      ]
+    },
+    {
+      "name": "conv3_block3_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        192
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        192
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block3_0_relu, id=1368498999248>"
+      ]
+    },
+    {
+      "name": "conv3_block3_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        192
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 24576,
+      "inbound_nodes": [
+        "<Node operation=conv3_block3_1_conv, id=1368498999728>"
+      ]
+    },
+    {
+      "name": "conv3_block3_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv3_block3_1_bn, id=1368499000592>"
+      ]
+    },
+    {
+      "name": "conv3_block3_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block3_1_relu, id=1368499001744>"
+      ]
+    },
+    {
+      "name": "conv3_block3_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv3_block3_2_conv, id=1368499002272>"
+      ]
+    },
+    {
+      "name": "conv3_block3_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          28,
+          28,
+          192
+        ],
+        [
+          -1,
+          28,
+          28,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        224
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block3_concat, id=1368499003232>"
+      ]
+    },
+    {
+      "name": "conv3_block4_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        224
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        224
+      ],
+      "params": 896,
+      "inbound_nodes": [
+        "<Node operation=conv3_block4_0_bn, id=1368499003568>"
+      ]
+    },
+    {
+      "name": "conv3_block4_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        224
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        224
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block4_0_relu, id=1368499004624>"
+      ]
+    },
+    {
+      "name": "conv3_block4_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        224
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 28672,
+      "inbound_nodes": [
+        "<Node operation=conv3_block4_1_conv, id=1368499005152>"
+      ]
+    },
+    {
+      "name": "conv3_block4_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv3_block4_1_bn, id=1368499006016>"
+      ]
+    },
+    {
+      "name": "conv3_block4_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block4_1_relu, id=1368499007168>"
+      ]
+    },
+    {
+      "name": "conv3_block4_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv3_block4_2_conv, id=1368499007648>"
+      ]
+    },
+    {
+      "name": "conv3_block4_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          28,
+          28,
+          224
+        ],
+        [
+          -1,
+          28,
+          28,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        256
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block4_concat, id=1368499008608>"
+      ]
+    },
+    {
+      "name": "conv3_block5_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        256
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        256
+      ],
+      "params": 1024,
+      "inbound_nodes": [
+        "<Node operation=conv3_block5_0_bn, id=1368499008944>"
+      ]
+    },
+    {
+      "name": "conv3_block5_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        256
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        256
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block5_0_relu, id=1368499010000>"
+      ]
+    },
+    {
+      "name": "conv3_block5_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        256
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 32768,
+      "inbound_nodes": [
+        "<Node operation=conv3_block5_1_conv, id=1368499010480>"
+      ]
+    },
+    {
+      "name": "conv3_block5_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv3_block5_1_bn, id=1368499011344>"
+      ]
+    },
+    {
+      "name": "conv3_block5_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block5_1_relu, id=1368499011536>"
+      ]
+    },
+    {
+      "name": "conv3_block5_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv3_block5_2_conv, id=1368499144112>"
+      ]
+    },
+    {
+      "name": "conv3_block5_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          28,
+          28,
+          256
+        ],
+        [
+          -1,
+          28,
+          28,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        288
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block5_concat, id=1368499145072>"
+      ]
+    },
+    {
+      "name": "conv3_block6_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        288
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        288
+      ],
+      "params": 1152,
+      "inbound_nodes": [
+        "<Node operation=conv3_block6_0_bn, id=1368499145408>"
+      ]
+    },
+    {
+      "name": "conv3_block6_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        288
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        288
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block6_0_relu, id=1368499146464>"
+      ]
+    },
+    {
+      "name": "conv3_block6_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        288
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv3_block6_1_conv, id=1368499146944>"
+      ]
+    },
+    {
+      "name": "conv3_block6_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv3_block6_1_bn, id=1368499147808>"
+      ]
+    },
+    {
+      "name": "conv3_block6_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block6_1_relu, id=1368499148960>"
+      ]
+    },
+    {
+      "name": "conv3_block6_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv3_block6_2_conv, id=1368499149440>"
+      ]
+    },
+    {
+      "name": "conv3_block6_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          28,
+          28,
+          288
+        ],
+        [
+          -1,
+          28,
+          28,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        320
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block6_concat, id=1368499150400>"
+      ]
+    },
+    {
+      "name": "conv3_block7_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        320
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        320
+      ],
+      "params": 1280,
+      "inbound_nodes": [
+        "<Node operation=conv3_block7_0_bn, id=1368499150736>"
+      ]
+    },
+    {
+      "name": "conv3_block7_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        320
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        320
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block7_0_relu, id=1368499151840>"
+      ]
+    },
+    {
+      "name": "conv3_block7_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        320
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 40960,
+      "inbound_nodes": [
+        "<Node operation=conv3_block7_1_conv, id=1368499152320>"
+      ]
+    },
+    {
+      "name": "conv3_block7_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv3_block7_1_bn, id=1368499153184>"
+      ]
+    },
+    {
+      "name": "conv3_block7_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block7_1_relu, id=1368499154336>"
+      ]
+    },
+    {
+      "name": "conv3_block7_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv3_block7_2_conv, id=1368499154816>"
+      ]
+    },
+    {
+      "name": "conv3_block7_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          28,
+          28,
+          320
+        ],
+        [
+          -1,
+          28,
+          28,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        352
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block7_concat, id=1368499155776>"
+      ]
+    },
+    {
+      "name": "conv3_block8_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        352
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        352
+      ],
+      "params": 1408,
+      "inbound_nodes": [
+        "<Node operation=conv3_block8_0_bn, id=1368461472672>"
+      ]
+    },
+    {
+      "name": "conv3_block8_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        352
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        352
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block8_0_relu, id=1368461470512>"
+      ]
+    },
+    {
+      "name": "conv3_block8_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        352
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 45056,
+      "inbound_nodes": [
+        "<Node operation=conv3_block8_1_conv, id=1368461472384>"
+      ]
+    },
+    {
+      "name": "conv3_block8_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv3_block8_1_bn, id=1368461469984>"
+      ]
+    },
+    {
+      "name": "conv3_block8_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block8_1_relu, id=1368461471520>"
+      ]
+    },
+    {
+      "name": "conv3_block8_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv3_block8_2_conv, id=1368461470560>"
+      ]
+    },
+    {
+      "name": "conv3_block8_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          28,
+          28,
+          352
+        ],
+        [
+          -1,
+          28,
+          28,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        384
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block8_concat, id=1368461468928>"
+      ]
+    },
+    {
+      "name": "conv3_block9_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        384
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        384
+      ],
+      "params": 1536,
+      "inbound_nodes": [
+        "<Node operation=conv3_block9_0_bn, id=1368460967888>"
+      ]
+    },
+    {
+      "name": "conv3_block9_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        384
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        384
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block9_0_relu, id=1368460964096>"
+      ]
+    },
+    {
+      "name": "conv3_block9_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        384
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 49152,
+      "inbound_nodes": [
+        "<Node operation=conv3_block9_1_conv, id=1368460966928>"
+      ]
+    },
+    {
+      "name": "conv3_block9_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv3_block9_1_bn, id=1368460966304>"
+      ]
+    },
+    {
+      "name": "conv3_block9_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block9_1_relu, id=1368460964432>"
+      ]
+    },
+    {
+      "name": "conv3_block9_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv3_block9_2_conv, id=1368499158224>"
+      ]
+    },
+    {
+      "name": "conv3_block9_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          28,
+          28,
+          384
+        ],
+        [
+          -1,
+          28,
+          28,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        416
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block9_concat, id=1368499158512>"
+      ]
+    },
+    {
+      "name": "conv3_block10_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        416
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        416
+      ],
+      "params": 1664,
+      "inbound_nodes": [
+        "<Node operation=conv3_block10_0_bn, id=1368499307040>"
+      ]
+    },
+    {
+      "name": "conv3_block10_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        416
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        416
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block10_0_relu, id=1368499308096>"
+      ]
+    },
+    {
+      "name": "conv3_block10_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        416
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 53248,
+      "inbound_nodes": [
+        "<Node operation=conv3_block10_1_conv, id=1368499308576>"
+      ]
+    },
+    {
+      "name": "conv3_block10_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv3_block10_1_bn, id=1368499309440>"
+      ]
+    },
+    {
+      "name": "conv3_block10_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block10_1_relu, id=1368499310592>"
+      ]
+    },
+    {
+      "name": "conv3_block10_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv3_block10_2_conv, id=1368499311072>"
+      ]
+    },
+    {
+      "name": "conv3_block10_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          28,
+          28,
+          416
+        ],
+        [
+          -1,
+          28,
+          28,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        448
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block10_concat, id=1368499312032>"
+      ]
+    },
+    {
+      "name": "conv3_block11_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        448
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        448
+      ],
+      "params": 1792,
+      "inbound_nodes": [
+        "<Node operation=conv3_block11_0_bn, id=1368499312368>"
+      ]
+    },
+    {
+      "name": "conv3_block11_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        448
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        448
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block11_0_relu, id=1368499313424>"
+      ]
+    },
+    {
+      "name": "conv3_block11_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        448
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 57344,
+      "inbound_nodes": [
+        "<Node operation=conv3_block11_1_conv, id=1368499313904>"
+      ]
+    },
+    {
+      "name": "conv3_block11_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv3_block11_1_bn, id=1368499314768>"
+      ]
+    },
+    {
+      "name": "conv3_block11_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block11_1_relu, id=1368499315920>"
+      ]
+    },
+    {
+      "name": "conv3_block11_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv3_block11_2_conv, id=1368499316400>"
+      ]
+    },
+    {
+      "name": "conv3_block11_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          28,
+          28,
+          448
+        ],
+        [
+          -1,
+          28,
+          28,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        480
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block11_concat, id=1368499317360>"
+      ]
+    },
+    {
+      "name": "conv3_block12_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        480
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        480
+      ],
+      "params": 1920,
+      "inbound_nodes": [
+        "<Node operation=conv3_block12_0_bn, id=1368499317696>"
+      ]
+    },
+    {
+      "name": "conv3_block12_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        480
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        480
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block12_0_relu, id=1368499318752>"
+      ]
+    },
+    {
+      "name": "conv3_block12_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        480
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 61440,
+      "inbound_nodes": [
+        "<Node operation=conv3_block12_1_conv, id=1368499319232>"
+      ]
+    },
+    {
+      "name": "conv3_block12_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv3_block12_1_bn, id=1368499320096>"
+      ]
+    },
+    {
+      "name": "conv3_block12_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block12_1_relu, id=1368499321248>"
+      ]
+    },
+    {
+      "name": "conv3_block12_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv3_block12_2_conv, id=1368499321728>"
+      ]
+    },
+    {
+      "name": "conv3_block12_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          28,
+          28,
+          480
+        ],
+        [
+          -1,
+          28,
+          28,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        512
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv3_block12_concat, id=1368499322592>"
+      ]
+    },
+    {
+      "name": "pool3_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        512
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        512
+      ],
+      "params": 2048,
+      "inbound_nodes": [
+        "<Node operation=pool3_bn, id=1368498568784>"
+      ]
+    },
+    {
+      "name": "pool3_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        512
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        512
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=pool3_relu, id=1368499422448>"
+      ]
+    },
+    {
+      "name": "pool3_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        512
+      ],
+      "output_tensor_shape": [
+        -1,
+        28,
+        28,
+        256
+      ],
+      "params": 131072,
+      "inbound_nodes": [
+        "<Node operation=pool3_conv, id=1368499422928>"
+      ]
+    },
+    {
+      "name": "pool3_pool",
+      "type": "AveragePooling2D",
+      "input_tensor_shape": [
+        -1,
+        28,
+        28,
+        256
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        256
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=pool3_pool, id=1368499423792>"
+      ]
+    },
+    {
+      "name": "conv4_block1_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        256
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        256
+      ],
+      "params": 1024,
+      "inbound_nodes": [
+        "<Node operation=conv4_block1_0_bn, id=1368499424080>"
+      ]
+    },
+    {
+      "name": "conv4_block1_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        256
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        256
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block1_0_relu, id=1368499425184>"
+      ]
+    },
+    {
+      "name": "conv4_block1_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        256
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 32768,
+      "inbound_nodes": [
+        "<Node operation=conv4_block1_1_conv, id=1368499425664>"
+      ]
+    },
+    {
+      "name": "conv4_block1_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block1_1_bn, id=1368499426528>"
+      ]
+    },
+    {
+      "name": "conv4_block1_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block1_1_relu, id=1368499427680>"
+      ]
+    },
+    {
+      "name": "conv4_block1_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block1_2_conv, id=1368499428160>"
+      ]
+    },
+    {
+      "name": "conv4_block1_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          256
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        288
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block1_concat, id=1368499429120>"
+      ]
+    },
+    {
+      "name": "conv4_block2_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        288
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        288
+      ],
+      "params": 1152,
+      "inbound_nodes": [
+        "<Node operation=conv4_block2_0_bn, id=1368499429456>"
+      ]
+    },
+    {
+      "name": "conv4_block2_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        288
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        288
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block2_0_relu, id=1368499430512>"
+      ]
+    },
+    {
+      "name": "conv4_block2_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        288
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block2_1_conv, id=1368499431040>"
+      ]
+    },
+    {
+      "name": "conv4_block2_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block2_1_bn, id=1368499431904>"
+      ]
+    },
+    {
+      "name": "conv4_block2_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block2_1_relu, id=1368499433200>"
+      ]
+    },
+    {
+      "name": "conv4_block2_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block2_2_conv, id=1368499433584>"
+      ]
+    },
+    {
+      "name": "conv4_block2_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          288
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        320
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block2_concat, id=1368499434544>"
+      ]
+    },
+    {
+      "name": "conv4_block3_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        320
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        320
+      ],
+      "params": 1280,
+      "inbound_nodes": [
+        "<Node operation=conv4_block3_0_bn, id=1368499434880>"
+      ]
+    },
+    {
+      "name": "conv4_block3_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        320
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        320
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block3_0_relu, id=1368499435936>"
+      ]
+    },
+    {
+      "name": "conv4_block3_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        320
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 40960,
+      "inbound_nodes": [
+        "<Node operation=conv4_block3_1_conv, id=1368499436464>"
+      ]
+    },
+    {
+      "name": "conv4_block3_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block3_1_bn, id=1368499437328>"
+      ]
+    },
+    {
+      "name": "conv4_block3_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block3_1_relu, id=1368499437520>"
+      ]
+    },
+    {
+      "name": "conv4_block3_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block3_2_conv, id=1368516134320>"
+      ]
+    },
+    {
+      "name": "conv4_block3_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          320
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        352
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block3_concat, id=1368516135280>"
+      ]
+    },
+    {
+      "name": "conv4_block4_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        352
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        352
+      ],
+      "params": 1408,
+      "inbound_nodes": [
+        "<Node operation=conv4_block4_0_bn, id=1368516135616>"
+      ]
+    },
+    {
+      "name": "conv4_block4_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        352
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        352
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block4_0_relu, id=1368516137104>"
+      ]
+    },
+    {
+      "name": "conv4_block4_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        352
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 45056,
+      "inbound_nodes": [
+        "<Node operation=conv4_block4_1_conv, id=1368516136672>"
+      ]
+    },
+    {
+      "name": "conv4_block4_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block4_1_bn, id=1368516138256>"
+      ]
+    },
+    {
+      "name": "conv4_block4_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block4_1_relu, id=1368516138160>"
+      ]
+    },
+    {
+      "name": "conv4_block4_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block4_2_conv, id=1368516139312>"
+      ]
+    },
+    {
+      "name": "conv4_block4_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          352
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        384
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block4_concat, id=1368516140752>"
+      ]
+    },
+    {
+      "name": "conv4_block5_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        384
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        384
+      ],
+      "params": 1536,
+      "inbound_nodes": [
+        "<Node operation=conv4_block5_0_bn, id=1368516141136>"
+      ]
+    },
+    {
+      "name": "conv4_block5_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        384
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        384
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block5_0_relu, id=1368516141088>"
+      ]
+    },
+    {
+      "name": "conv4_block5_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        384
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 49152,
+      "inbound_nodes": [
+        "<Node operation=conv4_block5_1_conv, id=1368516142144>"
+      ]
+    },
+    {
+      "name": "conv4_block5_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block5_1_bn, id=1368516143632>"
+      ]
+    },
+    {
+      "name": "conv4_block5_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block5_1_relu, id=1368516143536>"
+      ]
+    },
+    {
+      "name": "conv4_block5_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block5_2_conv, id=1368516144688>"
+      ]
+    },
+    {
+      "name": "conv4_block5_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          384
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        416
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block5_concat, id=1368516146128>"
+      ]
+    },
+    {
+      "name": "conv4_block6_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        416
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        416
+      ],
+      "params": 1664,
+      "inbound_nodes": [
+        "<Node operation=conv4_block6_0_bn, id=1368516146512>"
+      ]
+    },
+    {
+      "name": "conv4_block6_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        416
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        416
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block6_0_relu, id=1368516146464>"
+      ]
+    },
+    {
+      "name": "conv4_block6_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        416
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 53248,
+      "inbound_nodes": [
+        "<Node operation=conv4_block6_1_conv, id=1368516147520>"
+      ]
+    },
+    {
+      "name": "conv4_block6_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block6_1_bn, id=1368516149008>"
+      ]
+    },
+    {
+      "name": "conv4_block6_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block6_1_relu, id=1368516149200>"
+      ]
+    },
+    {
+      "name": "conv4_block6_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block6_2_conv, id=1368516232528>"
+      ]
+    },
+    {
+      "name": "conv4_block6_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          416
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        448
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block6_concat, id=1368516233488>"
+      ]
+    },
+    {
+      "name": "conv4_block7_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        448
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        448
+      ],
+      "params": 1792,
+      "inbound_nodes": [
+        "<Node operation=conv4_block7_0_bn, id=1368516233824>"
+      ]
+    },
+    {
+      "name": "conv4_block7_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        448
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        448
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block7_0_relu, id=1368516234880>"
+      ]
+    },
+    {
+      "name": "conv4_block7_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        448
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 57344,
+      "inbound_nodes": [
+        "<Node operation=conv4_block7_1_conv, id=1368516235408>"
+      ]
+    },
+    {
+      "name": "conv4_block7_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block7_1_bn, id=1368516236272>"
+      ]
+    },
+    {
+      "name": "conv4_block7_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block7_1_relu, id=1368516237424>"
+      ]
+    },
+    {
+      "name": "conv4_block7_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block7_2_conv, id=1368516237904>"
+      ]
+    },
+    {
+      "name": "conv4_block7_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          448
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        480
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block7_concat, id=1368516238864>"
+      ]
+    },
+    {
+      "name": "conv4_block8_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        480
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        480
+      ],
+      "params": 1920,
+      "inbound_nodes": [
+        "<Node operation=conv4_block8_0_bn, id=1368516239200>"
+      ]
+    },
+    {
+      "name": "conv4_block8_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        480
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        480
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block8_0_relu, id=1368516240256>"
+      ]
+    },
+    {
+      "name": "conv4_block8_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        480
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 61440,
+      "inbound_nodes": [
+        "<Node operation=conv4_block8_1_conv, id=1368516240784>"
+      ]
+    },
+    {
+      "name": "conv4_block8_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block8_1_bn, id=1368516241648>"
+      ]
+    },
+    {
+      "name": "conv4_block8_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block8_1_relu, id=1368516242800>"
+      ]
+    },
+    {
+      "name": "conv4_block8_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block8_2_conv, id=1368516243280>"
+      ]
+    },
+    {
+      "name": "conv4_block8_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          480
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        512
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block8_concat, id=1368516244240>"
+      ]
+    },
+    {
+      "name": "conv4_block9_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        512
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        512
+      ],
+      "params": 2048,
+      "inbound_nodes": [
+        "<Node operation=conv4_block9_0_bn, id=1368516244576>"
+      ]
+    },
+    {
+      "name": "conv4_block9_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        512
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        512
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block9_0_relu, id=1368516245632>"
+      ]
+    },
+    {
+      "name": "conv4_block9_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        512
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 65536,
+      "inbound_nodes": [
+        "<Node operation=conv4_block9_1_conv, id=1368516246160>"
+      ]
+    },
+    {
+      "name": "conv4_block9_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block9_1_bn, id=1368516247024>"
+      ]
+    },
+    {
+      "name": "conv4_block9_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block9_1_relu, id=1368516247072>"
+      ]
+    },
+    {
+      "name": "conv4_block9_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block9_2_conv, id=1368516396224>"
+      ]
+    },
+    {
+      "name": "conv4_block9_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          512
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        544
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block9_concat, id=1368516397184>"
+      ]
+    },
+    {
+      "name": "conv4_block10_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        544
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        544
+      ],
+      "params": 2176,
+      "inbound_nodes": [
+        "<Node operation=conv4_block10_0_bn, id=1368516397520>"
+      ]
+    },
+    {
+      "name": "conv4_block10_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        544
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        544
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block10_0_relu, id=1368516398576>"
+      ]
+    },
+    {
+      "name": "conv4_block10_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        544
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 69632,
+      "inbound_nodes": [
+        "<Node operation=conv4_block10_1_conv, id=1368516399104>"
+      ]
+    },
+    {
+      "name": "conv4_block10_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block10_1_bn, id=1368516399968>"
+      ]
+    },
+    {
+      "name": "conv4_block10_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block10_1_relu, id=1368516401120>"
+      ]
+    },
+    {
+      "name": "conv4_block10_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block10_2_conv, id=1368516401600>"
+      ]
+    },
+    {
+      "name": "conv4_block10_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          544
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        576
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block10_concat, id=1368516402560>"
+      ]
+    },
+    {
+      "name": "conv4_block11_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        576
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        576
+      ],
+      "params": 2304,
+      "inbound_nodes": [
+        "<Node operation=conv4_block11_0_bn, id=1368516402896>"
+      ]
+    },
+    {
+      "name": "conv4_block11_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        576
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        576
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block11_0_relu, id=1368516403952>"
+      ]
+    },
+    {
+      "name": "conv4_block11_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        576
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 73728,
+      "inbound_nodes": [
+        "<Node operation=conv4_block11_1_conv, id=1368516404480>"
+      ]
+    },
+    {
+      "name": "conv4_block11_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block11_1_bn, id=1368516405344>"
+      ]
+    },
+    {
+      "name": "conv4_block11_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block11_1_relu, id=1368516406496>"
+      ]
+    },
+    {
+      "name": "conv4_block11_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block11_2_conv, id=1368516406976>"
+      ]
+    },
+    {
+      "name": "conv4_block11_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          576
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        608
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block11_concat, id=1368516407936>"
+      ]
+    },
+    {
+      "name": "conv4_block12_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        608
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        608
+      ],
+      "params": 2432,
+      "inbound_nodes": [
+        "<Node operation=conv4_block12_0_bn, id=1368516408272>"
+      ]
+    },
+    {
+      "name": "conv4_block12_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        608
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        608
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block12_0_relu, id=1368516409328>"
+      ]
+    },
+    {
+      "name": "conv4_block12_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        608
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 77824,
+      "inbound_nodes": [
+        "<Node operation=conv4_block12_1_conv, id=1368516409856>"
+      ]
+    },
+    {
+      "name": "conv4_block12_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block12_1_bn, id=1368516410720>"
+      ]
+    },
+    {
+      "name": "conv4_block12_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block12_1_relu, id=1368516411008>"
+      ]
+    },
+    {
+      "name": "conv4_block12_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block12_2_conv, id=1368516510720>"
+      ]
+    },
+    {
+      "name": "conv4_block12_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          608
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        640
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block12_concat, id=1368516511680>"
+      ]
+    },
+    {
+      "name": "conv4_block13_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        640
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        640
+      ],
+      "params": 2560,
+      "inbound_nodes": [
+        "<Node operation=conv4_block13_0_bn, id=1368516512016>"
+      ]
+    },
+    {
+      "name": "conv4_block13_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        640
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        640
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block13_0_relu, id=1368516513072>"
+      ]
+    },
+    {
+      "name": "conv4_block13_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        640
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 81920,
+      "inbound_nodes": [
+        "<Node operation=conv4_block13_1_conv, id=1368516513600>"
+      ]
+    },
+    {
+      "name": "conv4_block13_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block13_1_bn, id=1368516514464>"
+      ]
+    },
+    {
+      "name": "conv4_block13_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block13_1_relu, id=1368516515616>"
+      ]
+    },
+    {
+      "name": "conv4_block13_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block13_2_conv, id=1368516516096>"
+      ]
+    },
+    {
+      "name": "conv4_block13_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          640
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        672
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block13_concat, id=1368516517056>"
+      ]
+    },
+    {
+      "name": "conv4_block14_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        672
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        672
+      ],
+      "params": 2688,
+      "inbound_nodes": [
+        "<Node operation=conv4_block14_0_bn, id=1368516517392>"
+      ]
+    },
+    {
+      "name": "conv4_block14_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        672
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        672
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block14_0_relu, id=1368516518448>"
+      ]
+    },
+    {
+      "name": "conv4_block14_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        672
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 86016,
+      "inbound_nodes": [
+        "<Node operation=conv4_block14_1_conv, id=1368516518976>"
+      ]
+    },
+    {
+      "name": "conv4_block14_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block14_1_bn, id=1368516519840>"
+      ]
+    },
+    {
+      "name": "conv4_block14_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block14_1_relu, id=1368516520992>"
+      ]
+    },
+    {
+      "name": "conv4_block14_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block14_2_conv, id=1368516521472>"
+      ]
+    },
+    {
+      "name": "conv4_block14_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          672
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        704
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block14_concat, id=1368516522432>"
+      ]
+    },
+    {
+      "name": "conv4_block15_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        704
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        704
+      ],
+      "params": 2816,
+      "inbound_nodes": [
+        "<Node operation=conv4_block15_0_bn, id=1368516522768>"
+      ]
+    },
+    {
+      "name": "conv4_block15_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        704
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        704
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block15_0_relu, id=1368516523824>"
+      ]
+    },
+    {
+      "name": "conv4_block15_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        704
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 90112,
+      "inbound_nodes": [
+        "<Node operation=conv4_block15_1_conv, id=1368516524352>"
+      ]
+    },
+    {
+      "name": "conv4_block15_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block15_1_bn, id=1368516525216>"
+      ]
+    },
+    {
+      "name": "conv4_block15_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block15_1_relu, id=1368516525504>"
+      ]
+    },
+    {
+      "name": "conv4_block15_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block15_2_conv, id=1368516674368>"
+      ]
+    },
+    {
+      "name": "conv4_block15_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          704
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        736
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block15_concat, id=1368516675328>"
+      ]
+    },
+    {
+      "name": "conv4_block16_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        736
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        736
+      ],
+      "params": 2944,
+      "inbound_nodes": [
+        "<Node operation=conv4_block16_0_bn, id=1368516675664>"
+      ]
+    },
+    {
+      "name": "conv4_block16_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        736
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        736
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block16_0_relu, id=1368516676720>"
+      ]
+    },
+    {
+      "name": "conv4_block16_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        736
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 94208,
+      "inbound_nodes": [
+        "<Node operation=conv4_block16_1_conv, id=1368516677248>"
+      ]
+    },
+    {
+      "name": "conv4_block16_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block16_1_bn, id=1368516678112>"
+      ]
+    },
+    {
+      "name": "conv4_block16_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block16_1_relu, id=1368516679264>"
+      ]
+    },
+    {
+      "name": "conv4_block16_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block16_2_conv, id=1368516679744>"
+      ]
+    },
+    {
+      "name": "conv4_block16_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          736
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        768
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block16_concat, id=1368516680704>"
+      ]
+    },
+    {
+      "name": "conv4_block17_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        768
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        768
+      ],
+      "params": 3072,
+      "inbound_nodes": [
+        "<Node operation=conv4_block17_0_bn, id=1368516681040>"
+      ]
+    },
+    {
+      "name": "conv4_block17_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        768
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        768
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block17_0_relu, id=1368516682096>"
+      ]
+    },
+    {
+      "name": "conv4_block17_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        768
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 98304,
+      "inbound_nodes": [
+        "<Node operation=conv4_block17_1_conv, id=1368516682624>"
+      ]
+    },
+    {
+      "name": "conv4_block17_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block17_1_bn, id=1368516683488>"
+      ]
+    },
+    {
+      "name": "conv4_block17_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block17_1_relu, id=1368516684640>"
+      ]
+    },
+    {
+      "name": "conv4_block17_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block17_2_conv, id=1368516685120>"
+      ]
+    },
+    {
+      "name": "conv4_block17_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          768
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        800
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block17_concat, id=1368516686080>"
+      ]
+    },
+    {
+      "name": "conv4_block18_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        800
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        800
+      ],
+      "params": 3200,
+      "inbound_nodes": [
+        "<Node operation=conv4_block18_0_bn, id=1368516686416>"
+      ]
+    },
+    {
+      "name": "conv4_block18_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        800
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        800
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block18_0_relu, id=1368516687472>"
+      ]
+    },
+    {
+      "name": "conv4_block18_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        800
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 102400,
+      "inbound_nodes": [
+        "<Node operation=conv4_block18_1_conv, id=1368516688000>"
+      ]
+    },
+    {
+      "name": "conv4_block18_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block18_1_bn, id=1368516688864>"
+      ]
+    },
+    {
+      "name": "conv4_block18_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block18_1_relu, id=1368516689152>"
+      ]
+    },
+    {
+      "name": "conv4_block18_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block18_2_conv, id=1368516788864>"
+      ]
+    },
+    {
+      "name": "conv4_block18_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          800
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        832
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block18_concat, id=1368516789824>"
+      ]
+    },
+    {
+      "name": "conv4_block19_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        832
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        832
+      ],
+      "params": 3328,
+      "inbound_nodes": [
+        "<Node operation=conv4_block19_0_bn, id=1368516790160>"
+      ]
+    },
+    {
+      "name": "conv4_block19_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        832
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        832
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block19_0_relu, id=1368516791216>"
+      ]
+    },
+    {
+      "name": "conv4_block19_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        832
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 106496,
+      "inbound_nodes": [
+        "<Node operation=conv4_block19_1_conv, id=1368516791744>"
+      ]
+    },
+    {
+      "name": "conv4_block19_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block19_1_bn, id=1368516792608>"
+      ]
+    },
+    {
+      "name": "conv4_block19_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block19_1_relu, id=1368516793760>"
+      ]
+    },
+    {
+      "name": "conv4_block19_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block19_2_conv, id=1368516794240>"
+      ]
+    },
+    {
+      "name": "conv4_block19_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          832
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        864
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block19_concat, id=1368516795200>"
+      ]
+    },
+    {
+      "name": "conv4_block20_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        864
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        864
+      ],
+      "params": 3456,
+      "inbound_nodes": [
+        "<Node operation=conv4_block20_0_bn, id=1368516795536>"
+      ]
+    },
+    {
+      "name": "conv4_block20_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        864
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        864
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block20_0_relu, id=1368516796592>"
+      ]
+    },
+    {
+      "name": "conv4_block20_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        864
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 110592,
+      "inbound_nodes": [
+        "<Node operation=conv4_block20_1_conv, id=1368516797120>"
+      ]
+    },
+    {
+      "name": "conv4_block20_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block20_1_bn, id=1368516797984>"
+      ]
+    },
+    {
+      "name": "conv4_block20_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block20_1_relu, id=1368516799136>"
+      ]
+    },
+    {
+      "name": "conv4_block20_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block20_2_conv, id=1368516799616>"
+      ]
+    },
+    {
+      "name": "conv4_block20_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          864
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        896
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block20_concat, id=1368516800576>"
+      ]
+    },
+    {
+      "name": "conv4_block21_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        896
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        896
+      ],
+      "params": 3584,
+      "inbound_nodes": [
+        "<Node operation=conv4_block21_0_bn, id=1368516800912>"
+      ]
+    },
+    {
+      "name": "conv4_block21_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        896
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        896
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block21_0_relu, id=1368516801968>"
+      ]
+    },
+    {
+      "name": "conv4_block21_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        896
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 114688,
+      "inbound_nodes": [
+        "<Node operation=conv4_block21_1_conv, id=1368516802496>"
+      ]
+    },
+    {
+      "name": "conv4_block21_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block21_1_bn, id=1368516803360>"
+      ]
+    },
+    {
+      "name": "conv4_block21_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block21_1_relu, id=1368516803648>"
+      ]
+    },
+    {
+      "name": "conv4_block21_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block21_2_conv, id=1368516936128>"
+      ]
+    },
+    {
+      "name": "conv4_block21_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          896
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        928
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block21_concat, id=1368516937088>"
+      ]
+    },
+    {
+      "name": "conv4_block22_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        928
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        928
+      ],
+      "params": 3712,
+      "inbound_nodes": [
+        "<Node operation=conv4_block22_0_bn, id=1368516937424>"
+      ]
+    },
+    {
+      "name": "conv4_block22_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        928
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        928
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block22_0_relu, id=1368516938480>"
+      ]
+    },
+    {
+      "name": "conv4_block22_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        928
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 118784,
+      "inbound_nodes": [
+        "<Node operation=conv4_block22_1_conv, id=1368516939008>"
+      ]
+    },
+    {
+      "name": "conv4_block22_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block22_1_bn, id=1368516939872>"
+      ]
+    },
+    {
+      "name": "conv4_block22_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block22_1_relu, id=1368516941024>"
+      ]
+    },
+    {
+      "name": "conv4_block22_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block22_2_conv, id=1368516941504>"
+      ]
+    },
+    {
+      "name": "conv4_block22_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          928
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        960
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block22_concat, id=1368516942464>"
+      ]
+    },
+    {
+      "name": "conv4_block23_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        960
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        960
+      ],
+      "params": 3840,
+      "inbound_nodes": [
+        "<Node operation=conv4_block23_0_bn, id=1368516942800>"
+      ]
+    },
+    {
+      "name": "conv4_block23_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        960
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        960
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block23_0_relu, id=1368516943856>"
+      ]
+    },
+    {
+      "name": "conv4_block23_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        960
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 122880,
+      "inbound_nodes": [
+        "<Node operation=conv4_block23_1_conv, id=1368516944384>"
+      ]
+    },
+    {
+      "name": "conv4_block23_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block23_1_bn, id=1368516945248>"
+      ]
+    },
+    {
+      "name": "conv4_block23_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block23_1_relu, id=1368516946400>"
+      ]
+    },
+    {
+      "name": "conv4_block23_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block23_2_conv, id=1368516946880>"
+      ]
+    },
+    {
+      "name": "conv4_block23_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          960
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        992
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block23_concat, id=1368516947840>"
+      ]
+    },
+    {
+      "name": "conv4_block24_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        992
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        992
+      ],
+      "params": 3968,
+      "inbound_nodes": [
+        "<Node operation=conv4_block24_0_bn, id=1368516948176>"
+      ]
+    },
+    {
+      "name": "conv4_block24_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        992
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        992
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block24_0_relu, id=1368516949232>"
+      ]
+    },
+    {
+      "name": "conv4_block24_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        992
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 126976,
+      "inbound_nodes": [
+        "<Node operation=conv4_block24_1_conv, id=1368516949760>"
+      ]
+    },
+    {
+      "name": "conv4_block24_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv4_block24_1_bn, id=1368516950672>"
+      ]
+    },
+    {
+      "name": "conv4_block24_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block24_1_relu, id=1368516950960>"
+      ]
+    },
+    {
+      "name": "conv4_block24_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv4_block24_2_conv, id=1368517050672>"
+      ]
+    },
+    {
+      "name": "conv4_block24_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          14,
+          14,
+          992
+        ],
+        [
+          -1,
+          14,
+          14,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        1024
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv4_block24_concat, id=1368517051632>"
+      ]
+    },
+    {
+      "name": "pool4_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        1024
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        1024
+      ],
+      "params": 4096,
+      "inbound_nodes": [
+        "<Node operation=pool4_bn, id=1368517051968>"
+      ]
+    },
+    {
+      "name": "pool4_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        1024
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        1024
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=pool4_relu, id=1368517053024>"
+      ]
+    },
+    {
+      "name": "pool4_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        1024
+      ],
+      "output_tensor_shape": [
+        -1,
+        14,
+        14,
+        512
+      ],
+      "params": 524288,
+      "inbound_nodes": [
+        "<Node operation=pool4_conv, id=1368517053552>"
+      ]
+    },
+    {
+      "name": "pool4_pool",
+      "type": "AveragePooling2D",
+      "input_tensor_shape": [
+        -1,
+        14,
+        14,
+        512
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        512
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=pool4_pool, id=1368517054416>"
+      ]
+    },
+    {
+      "name": "conv5_block1_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        512
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        512
+      ],
+      "params": 2048,
+      "inbound_nodes": [
+        "<Node operation=conv5_block1_0_bn, id=1368517054704>"
+      ]
+    },
+    {
+      "name": "conv5_block1_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        512
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        512
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block1_0_relu, id=1368517055808>"
+      ]
+    },
+    {
+      "name": "conv5_block1_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        512
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 65536,
+      "inbound_nodes": [
+        "<Node operation=conv5_block1_1_conv, id=1368517056336>"
+      ]
+    },
+    {
+      "name": "conv5_block1_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv5_block1_1_bn, id=1368517057200>"
+      ]
+    },
+    {
+      "name": "conv5_block1_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block1_1_relu, id=1368517058352>"
+      ]
+    },
+    {
+      "name": "conv5_block1_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv5_block1_2_conv, id=1368517058832>"
+      ]
+    },
+    {
+      "name": "conv5_block1_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          7,
+          7,
+          512
+        ],
+        [
+          -1,
+          7,
+          7,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        544
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block1_concat, id=1368517059792>"
+      ]
+    },
+    {
+      "name": "conv5_block2_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        544
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        544
+      ],
+      "params": 2176,
+      "inbound_nodes": [
+        "<Node operation=conv5_block2_0_bn, id=1368517060128>"
+      ]
+    },
+    {
+      "name": "conv5_block2_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        544
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        544
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block2_0_relu, id=1368517061184>"
+      ]
+    },
+    {
+      "name": "conv5_block2_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        544
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 69632,
+      "inbound_nodes": [
+        "<Node operation=conv5_block2_1_conv, id=1368517061712>"
+      ]
+    },
+    {
+      "name": "conv5_block2_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv5_block2_1_bn, id=1368517062576>"
+      ]
+    },
+    {
+      "name": "conv5_block2_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block2_1_relu, id=1368517063728>"
+      ]
+    },
+    {
+      "name": "conv5_block2_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv5_block2_2_conv, id=1368517064208>"
+      ]
+    },
+    {
+      "name": "conv5_block2_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          7,
+          7,
+          544
+        ],
+        [
+          -1,
+          7,
+          7,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        576
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block2_concat, id=1368517065168>"
+      ]
+    },
+    {
+      "name": "conv5_block3_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        576
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        576
+      ],
+      "params": 2304,
+      "inbound_nodes": [
+        "<Node operation=conv5_block3_0_bn, id=1368517065504>"
+      ]
+    },
+    {
+      "name": "conv5_block3_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        576
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        576
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block3_0_relu, id=1368517065456>"
+      ]
+    },
+    {
+      "name": "conv5_block3_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        576
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 73728,
+      "inbound_nodes": [
+        "<Node operation=conv5_block3_1_conv, id=1368554815888>"
+      ]
+    },
+    {
+      "name": "conv5_block3_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv5_block3_1_bn, id=1368554816752>"
+      ]
+    },
+    {
+      "name": "conv5_block3_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block3_1_relu, id=1368554817904>"
+      ]
+    },
+    {
+      "name": "conv5_block3_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv5_block3_2_conv, id=1368554818384>"
+      ]
+    },
+    {
+      "name": "conv5_block3_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          7,
+          7,
+          576
+        ],
+        [
+          -1,
+          7,
+          7,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        608
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block3_concat, id=1368554819344>"
+      ]
+    },
+    {
+      "name": "conv5_block4_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        608
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        608
+      ],
+      "params": 2432,
+      "inbound_nodes": [
+        "<Node operation=conv5_block4_0_bn, id=1368554819680>"
+      ]
+    },
+    {
+      "name": "conv5_block4_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        608
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        608
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block4_0_relu, id=1368554820784>"
+      ]
+    },
+    {
+      "name": "conv5_block4_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        608
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 77824,
+      "inbound_nodes": [
+        "<Node operation=conv5_block4_1_conv, id=1368554821312>"
+      ]
+    },
+    {
+      "name": "conv5_block4_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv5_block4_1_bn, id=1368554822176>"
+      ]
+    },
+    {
+      "name": "conv5_block4_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block4_1_relu, id=1368554823328>"
+      ]
+    },
+    {
+      "name": "conv5_block4_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv5_block4_2_conv, id=1368554823808>"
+      ]
+    },
+    {
+      "name": "conv5_block4_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          7,
+          7,
+          608
+        ],
+        [
+          -1,
+          7,
+          7,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        640
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block4_concat, id=1368554824768>"
+      ]
+    },
+    {
+      "name": "conv5_block5_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        640
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        640
+      ],
+      "params": 2560,
+      "inbound_nodes": [
+        "<Node operation=conv5_block5_0_bn, id=1368554825104>"
+      ]
+    },
+    {
+      "name": "conv5_block5_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        640
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        640
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block5_0_relu, id=1368554826160>"
+      ]
+    },
+    {
+      "name": "conv5_block5_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        640
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 81920,
+      "inbound_nodes": [
+        "<Node operation=conv5_block5_1_conv, id=1368554826688>"
+      ]
+    },
+    {
+      "name": "conv5_block5_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv5_block5_1_bn, id=1368554827552>"
+      ]
+    },
+    {
+      "name": "conv5_block5_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block5_1_relu, id=1368554828704>"
+      ]
+    },
+    {
+      "name": "conv5_block5_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv5_block5_2_conv, id=1368554829184>"
+      ]
+    },
+    {
+      "name": "conv5_block5_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          7,
+          7,
+          640
+        ],
+        [
+          -1,
+          7,
+          7,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        672
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block5_concat, id=1368554830144>"
+      ]
+    },
+    {
+      "name": "conv5_block6_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        672
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        672
+      ],
+      "params": 2688,
+      "inbound_nodes": [
+        "<Node operation=conv5_block6_0_bn, id=1368554830480>"
+      ]
+    },
+    {
+      "name": "conv5_block6_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        672
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        672
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block6_0_relu, id=1368554830432>"
+      ]
+    },
+    {
+      "name": "conv5_block6_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        672
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 86016,
+      "inbound_nodes": [
+        "<Node operation=conv5_block6_1_conv, id=1368554930432>"
+      ]
+    },
+    {
+      "name": "conv5_block6_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv5_block6_1_bn, id=1368554931296>"
+      ]
+    },
+    {
+      "name": "conv5_block6_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block6_1_relu, id=1368554932448>"
+      ]
+    },
+    {
+      "name": "conv5_block6_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv5_block6_2_conv, id=1368554932928>"
+      ]
+    },
+    {
+      "name": "conv5_block6_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          7,
+          7,
+          672
+        ],
+        [
+          -1,
+          7,
+          7,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        704
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block6_concat, id=1368554933888>"
+      ]
+    },
+    {
+      "name": "conv5_block7_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        704
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        704
+      ],
+      "params": 2816,
+      "inbound_nodes": [
+        "<Node operation=conv5_block7_0_bn, id=1368554934224>"
+      ]
+    },
+    {
+      "name": "conv5_block7_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        704
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        704
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block7_0_relu, id=1368554935280>"
+      ]
+    },
+    {
+      "name": "conv5_block7_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        704
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 90112,
+      "inbound_nodes": [
+        "<Node operation=conv5_block7_1_conv, id=1368554935808>"
+      ]
+    },
+    {
+      "name": "conv5_block7_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv5_block7_1_bn, id=1368554936672>"
+      ]
+    },
+    {
+      "name": "conv5_block7_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block7_1_relu, id=1368554937824>"
+      ]
+    },
+    {
+      "name": "conv5_block7_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv5_block7_2_conv, id=1368554938304>"
+      ]
+    },
+    {
+      "name": "conv5_block7_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          7,
+          7,
+          704
+        ],
+        [
+          -1,
+          7,
+          7,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        736
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block7_concat, id=1368554939264>"
+      ]
+    },
+    {
+      "name": "conv5_block8_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        736
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        736
+      ],
+      "params": 2944,
+      "inbound_nodes": [
+        "<Node operation=conv5_block8_0_bn, id=1368554939600>"
+      ]
+    },
+    {
+      "name": "conv5_block8_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        736
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        736
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block8_0_relu, id=1368554940656>"
+      ]
+    },
+    {
+      "name": "conv5_block8_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        736
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 94208,
+      "inbound_nodes": [
+        "<Node operation=conv5_block8_1_conv, id=1368554941184>"
+      ]
+    },
+    {
+      "name": "conv5_block8_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv5_block8_1_bn, id=1368554942048>"
+      ]
+    },
+    {
+      "name": "conv5_block8_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block8_1_relu, id=1368554943200>"
+      ]
+    },
+    {
+      "name": "conv5_block8_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv5_block8_2_conv, id=1368554943680>"
+      ]
+    },
+    {
+      "name": "conv5_block8_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          7,
+          7,
+          736
+        ],
+        [
+          -1,
+          7,
+          7,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        768
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block8_concat, id=1368554944640>"
+      ]
+    },
+    {
+      "name": "conv5_block9_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        768
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        768
+      ],
+      "params": 3072,
+      "inbound_nodes": [
+        "<Node operation=conv5_block9_0_bn, id=1368554944976>"
+      ]
+    },
+    {
+      "name": "conv5_block9_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        768
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        768
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block9_0_relu, id=1368554946032>"
+      ]
+    },
+    {
+      "name": "conv5_block9_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        768
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 98304,
+      "inbound_nodes": [
+        "<Node operation=conv5_block9_1_conv, id=1368554946464>"
+      ]
+    },
+    {
+      "name": "conv5_block9_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv5_block9_1_bn, id=1368555094944>"
+      ]
+    },
+    {
+      "name": "conv5_block9_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block9_1_relu, id=1368555096096>"
+      ]
+    },
+    {
+      "name": "conv5_block9_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv5_block9_2_conv, id=1368555096576>"
+      ]
+    },
+    {
+      "name": "conv5_block9_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          7,
+          7,
+          768
+        ],
+        [
+          -1,
+          7,
+          7,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        800
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block9_concat, id=1368555097536>"
+      ]
+    },
+    {
+      "name": "conv5_block10_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        800
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        800
+      ],
+      "params": 3200,
+      "inbound_nodes": [
+        "<Node operation=conv5_block10_0_bn, id=1368555097872>"
+      ]
+    },
+    {
+      "name": "conv5_block10_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        800
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        800
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block10_0_relu, id=1368555098928>"
+      ]
+    },
+    {
+      "name": "conv5_block10_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        800
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 102400,
+      "inbound_nodes": [
+        "<Node operation=conv5_block10_1_conv, id=1368555099456>"
+      ]
+    },
+    {
+      "name": "conv5_block10_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv5_block10_1_bn, id=1368555100320>"
+      ]
+    },
+    {
+      "name": "conv5_block10_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block10_1_relu, id=1368555101472>"
+      ]
+    },
+    {
+      "name": "conv5_block10_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv5_block10_2_conv, id=1368555101952>"
+      ]
+    },
+    {
+      "name": "conv5_block10_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          7,
+          7,
+          800
+        ],
+        [
+          -1,
+          7,
+          7,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        832
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block10_concat, id=1368555102912>"
+      ]
+    },
+    {
+      "name": "conv5_block11_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        832
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        832
+      ],
+      "params": 3328,
+      "inbound_nodes": [
+        "<Node operation=conv5_block11_0_bn, id=1368555103248>"
+      ]
+    },
+    {
+      "name": "conv5_block11_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        832
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        832
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block11_0_relu, id=1368555104304>"
+      ]
+    },
+    {
+      "name": "conv5_block11_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        832
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 106496,
+      "inbound_nodes": [
+        "<Node operation=conv5_block11_1_conv, id=1368555104832>"
+      ]
+    },
+    {
+      "name": "conv5_block11_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv5_block11_1_bn, id=1368555105696>"
+      ]
+    },
+    {
+      "name": "conv5_block11_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block11_1_relu, id=1368555106848>"
+      ]
+    },
+    {
+      "name": "conv5_block11_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv5_block11_2_conv, id=1368555107328>"
+      ]
+    },
+    {
+      "name": "conv5_block11_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          7,
+          7,
+          832
+        ],
+        [
+          -1,
+          7,
+          7,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        864
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block11_concat, id=1368555108288>"
+      ]
+    },
+    {
+      "name": "conv5_block12_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        864
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        864
+      ],
+      "params": 3456,
+      "inbound_nodes": [
+        "<Node operation=conv5_block12_0_bn, id=1368555108624>"
+      ]
+    },
+    {
+      "name": "conv5_block12_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        864
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        864
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block12_0_relu, id=1368555109680>"
+      ]
+    },
+    {
+      "name": "conv5_block12_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        864
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 110592,
+      "inbound_nodes": [
+        "<Node operation=conv5_block12_1_conv, id=1368555110112>"
+      ]
+    },
+    {
+      "name": "conv5_block12_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv5_block12_1_bn, id=1368555209440>"
+      ]
+    },
+    {
+      "name": "conv5_block12_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block12_1_relu, id=1368555210592>"
+      ]
+    },
+    {
+      "name": "conv5_block12_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv5_block12_2_conv, id=1368555211072>"
+      ]
+    },
+    {
+      "name": "conv5_block12_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          7,
+          7,
+          864
+        ],
+        [
+          -1,
+          7,
+          7,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        896
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block12_concat, id=1368555212032>"
+      ]
+    },
+    {
+      "name": "conv5_block13_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        896
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        896
+      ],
+      "params": 3584,
+      "inbound_nodes": [
+        "<Node operation=conv5_block13_0_bn, id=1368555212368>"
+      ]
+    },
+    {
+      "name": "conv5_block13_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        896
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        896
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block13_0_relu, id=1368555213424>"
+      ]
+    },
+    {
+      "name": "conv5_block13_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        896
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 114688,
+      "inbound_nodes": [
+        "<Node operation=conv5_block13_1_conv, id=1368555213952>"
+      ]
+    },
+    {
+      "name": "conv5_block13_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv5_block13_1_bn, id=1368555214816>"
+      ]
+    },
+    {
+      "name": "conv5_block13_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block13_1_relu, id=1368555215968>"
+      ]
+    },
+    {
+      "name": "conv5_block13_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv5_block13_2_conv, id=1368555216448>"
+      ]
+    },
+    {
+      "name": "conv5_block13_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          7,
+          7,
+          896
+        ],
+        [
+          -1,
+          7,
+          7,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        928
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block13_concat, id=1368555217408>"
+      ]
+    },
+    {
+      "name": "conv5_block14_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        928
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        928
+      ],
+      "params": 3712,
+      "inbound_nodes": [
+        "<Node operation=conv5_block14_0_bn, id=1368555217744>"
+      ]
+    },
+    {
+      "name": "conv5_block14_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        928
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        928
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block14_0_relu, id=1368555218800>"
+      ]
+    },
+    {
+      "name": "conv5_block14_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        928
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 118784,
+      "inbound_nodes": [
+        "<Node operation=conv5_block14_1_conv, id=1368555219328>"
+      ]
+    },
+    {
+      "name": "conv5_block14_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv5_block14_1_bn, id=1368555220192>"
+      ]
+    },
+    {
+      "name": "conv5_block14_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block14_1_relu, id=1368555221344>"
+      ]
+    },
+    {
+      "name": "conv5_block14_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv5_block14_2_conv, id=1368555221824>"
+      ]
+    },
+    {
+      "name": "conv5_block14_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          7,
+          7,
+          928
+        ],
+        [
+          -1,
+          7,
+          7,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        960
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block14_concat, id=1368555222784>"
+      ]
+    },
+    {
+      "name": "conv5_block15_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        960
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        960
+      ],
+      "params": 3840,
+      "inbound_nodes": [
+        "<Node operation=conv5_block15_0_bn, id=1368555223120>"
+      ]
+    },
+    {
+      "name": "conv5_block15_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        960
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        960
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block15_0_relu, id=1368555224176>"
+      ]
+    },
+    {
+      "name": "conv5_block15_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        960
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 122880,
+      "inbound_nodes": [
+        "<Node operation=conv5_block15_1_conv, id=1368555224704>"
+      ]
+    },
+    {
+      "name": "conv5_block15_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv5_block15_1_bn, id=1368461588752>"
+      ]
+    },
+    {
+      "name": "conv5_block15_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block15_1_relu, id=1368555390624>"
+      ]
+    },
+    {
+      "name": "conv5_block15_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv5_block15_2_conv, id=1368555391104>"
+      ]
+    },
+    {
+      "name": "conv5_block15_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          7,
+          7,
+          960
+        ],
+        [
+          -1,
+          7,
+          7,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        992
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block15_concat, id=1368555392064>"
+      ]
+    },
+    {
+      "name": "conv5_block16_0_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        992
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        992
+      ],
+      "params": 3968,
+      "inbound_nodes": [
+        "<Node operation=conv5_block16_0_bn, id=1368555392400>"
+      ]
+    },
+    {
+      "name": "conv5_block16_0_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        992
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        992
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block16_0_relu, id=1368555393456>"
+      ]
+    },
+    {
+      "name": "conv5_block16_1_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        992
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 126976,
+      "inbound_nodes": [
+        "<Node operation=conv5_block16_1_conv, id=1368555393984>"
+      ]
+    },
+    {
+      "name": "conv5_block16_1_bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=conv5_block16_1_bn, id=1368555394848>"
+      ]
+    },
+    {
+      "name": "conv5_block16_1_relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block16_1_relu, id=1368555396000>"
+      ]
+    },
+    {
+      "name": "conv5_block16_2_conv",
+      "type": "Conv2D",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        32
+      ],
+      "params": 36864,
+      "inbound_nodes": [
+        "<Node operation=conv5_block16_2_conv, id=1368555396480>"
+      ]
+    },
+    {
+      "name": "conv5_block16_concat",
+      "type": "Concatenate",
+      "input_tensor_shape": [
+        [
+          -1,
+          7,
+          7,
+          992
+        ],
+        [
+          -1,
+          7,
+          7,
+          32
+        ]
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        1024
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=conv5_block16_concat, id=1368555397440>"
+      ]
+    },
+    {
+      "name": "bn",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        1024
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        1024
+      ],
+      "params": 4096,
+      "inbound_nodes": [
+        "<Node operation=bn, id=1368555397776>"
+      ]
+    },
+    {
+      "name": "relu",
+      "type": "Activation",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        1024
+      ],
+      "output_tensor_shape": [
+        -1,
+        7,
+        7,
+        1024
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=relu, id=1368555398832>"
+      ]
+    },
+    {
+      "name": "reshape",
+      "type": "Reshape",
+      "input_tensor_shape": [
+        -1,
+        7,
+        7,
+        1024
+      ],
+      "output_tensor_shape": [
+        -1,
+        49,
+        1024
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=reshape, id=1368555399360>"
+      ]
+    },
+    {
+      "name": "bidirectional",
+      "type": "Bidirectional",
+      "input_tensor_shape": [
+        -1,
+        49,
+        1024
+      ],
+      "output_tensor_shape": [
+        -1,
+        49,
+        256
+      ],
+      "params": 1180672,
+      "inbound_nodes": [
+        "<Node operation=bidirectional, id=1368555399984>"
+      ]
+    },
+    {
+      "name": "bidirectional_1",
+      "type": "Bidirectional",
+      "input_tensor_shape": [
+        -1,
+        49,
+        256
+      ],
+      "output_tensor_shape": [
+        -1,
+        49,
+        128
+      ],
+      "params": 164352,
+      "inbound_nodes": [
+        "<Node operation=bidirectional_1, id=1368555400032>"
+      ]
+    },
+    {
+      "name": "bidirectional_2",
+      "type": "Bidirectional",
+      "input_tensor_shape": [
+        -1,
+        49,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        64
+      ],
+      "params": 41216,
+      "inbound_nodes": [
+        "<Node operation=bidirectional_2, id=1368555400320>"
+      ]
+    },
+    {
+      "name": "batch_normalization",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        64
+      ],
+      "output_tensor_shape": [
+        -1,
+        64
+      ],
+      "params": 256,
+      "inbound_nodes": [
+        "<Node operation=batch_normalization, id=1368555399648>"
+      ]
+    },
+    {
+      "name": "dense",
+      "type": "Dense",
+      "input_tensor_shape": [
+        -1,
+        64
+      ],
+      "output_tensor_shape": [
+        -1,
+        256
+      ],
+      "params": 16640,
+      "inbound_nodes": [
+        "<Node operation=dense, id=1368461579248>"
+      ]
+    },
+    {
+      "name": "batch_normalization_1",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        256
+      ],
+      "output_tensor_shape": [
+        -1,
+        256
+      ],
+      "params": 1024,
+      "inbound_nodes": [
+        "<Node operation=batch_normalization_1, id=1368555403104>"
+      ]
+    },
+    {
+      "name": "dropout",
+      "type": "Dropout",
+      "input_tensor_shape": [
+        -1,
+        256
+      ],
+      "output_tensor_shape": [
+        -1,
+        256
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=dropout, id=1368555404448>"
+      ]
+    },
+    {
+      "name": "dense_1",
+      "type": "Dense",
+      "input_tensor_shape": [
+        -1,
+        256
+      ],
+      "output_tensor_shape": [
+        -1,
+        128
+      ],
+      "params": 32896,
+      "inbound_nodes": [
+        "<Node operation=dense_1, id=1368555405264>"
+      ]
+    },
+    {
+      "name": "batch_normalization_2",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        128
+      ],
+      "params": 512,
+      "inbound_nodes": [
+        "<Node operation=batch_normalization_2, id=1368498568304>"
+      ]
+    },
+    {
+      "name": "dropout_1",
+      "type": "Dropout",
+      "input_tensor_shape": [
+        -1,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        128
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=dropout_1, id=1368555489168>"
+      ]
+    },
+    {
+      "name": "dense_2",
+      "type": "Dense",
+      "input_tensor_shape": [
+        -1,
+        128
+      ],
+      "output_tensor_shape": [
+        -1,
+        64
+      ],
+      "params": 8256,
+      "inbound_nodes": [
+        "<Node operation=dense_2, id=1368461585104>"
+      ]
+    },
+    {
+      "name": "batch_normalization_3",
+      "type": "BatchNormalization",
+      "input_tensor_shape": [
+        -1,
+        64
+      ],
+      "output_tensor_shape": [
+        -1,
+        64
+      ],
+      "params": 256,
+      "inbound_nodes": [
+        "<Node operation=batch_normalization_3, id=1368555490560>"
+      ]
+    },
+    {
+      "name": "dropout_2",
+      "type": "Dropout",
+      "input_tensor_shape": [
+        -1,
+        64
+      ],
+      "output_tensor_shape": [
+        -1,
+        64
+      ],
+      "params": 0,
+      "inbound_nodes": [
+        "<Node operation=dropout_2, id=1368555491904>"
+      ]
+    },
+    {
+      "name": "dense_3",
+      "type": "Dense",
+      "input_tensor_shape": [
+        -1,
+        64
+      ],
+      "output_tensor_shape": [
+        -1,
+        1
+      ],
+      "params": 65,
+      "inbound_nodes": [
+        "<Node operation=dense_3, id=1368498554480>"
+      ]
+    }
+  ],
+  "recommendations": [
+    "Many activation layers detected \u2192 verify activation placement efficiency."
+  ]
+}
