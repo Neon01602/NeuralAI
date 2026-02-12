@@ -2,9 +2,6 @@ import os
 import json
 import argparse
 
-# ---------- Framework imports ----------
-
-# TensorFlow / Keras
 try:
     import tensorflow as tf
     from tensorflow.keras.models import load_model
@@ -13,7 +10,7 @@ try:
 except Exception:
     TF_AVAILABLE = False
 
-# PyTorch
+
 try:
     import torch
     import torch.nn as nn
@@ -21,15 +18,13 @@ try:
 except Exception:
     TORCH_AVAILABLE = False
 
-# ONNX
+
 try:
     import onnx
     ONNX_AVAILABLE = True
 except Exception:
     ONNX_AVAILABLE = False
 
-
-# ---------- Helpers ----------
 
 def safe_value(x):
     """Convert numpy/tensor values into JSON-safe format."""
@@ -39,9 +34,6 @@ def safe_value(x):
         return x
     except:
         return str(x)
-
-
-# ---------- Analyzers ----------
 
 def tensor_shape(t):
     """Safely extract tensor shape."""
@@ -72,17 +64,14 @@ def analyze_keras(path):
 
     for layer in model.layers:
 
-        # Tensor shapes
         in_shape = tensor_shape(getattr(layer, "input", None))
         out_shape = tensor_shape(getattr(layer, "output", None))
 
-        # Params
         try:
             params = layer.count_params()
         except:
             params = 0
 
-        # Connections
         inbound = []
         try:
             for node in layer._inbound_nodes:
@@ -100,9 +89,6 @@ def analyze_keras(path):
         })
 
     return summary
-
-
-
 
 def analyze_pytorch(path):
     model = torch.load(path, map_location="cpu")
@@ -149,8 +135,6 @@ def analyze_tflite(path):
         })
 
     return {"name": os.path.basename(path), "tensors": tensors}
-
-# ---------- Recommendation Engine ----------
 
 def generate_recommendations(summary):
 
@@ -224,8 +208,6 @@ def generate_recommendations(summary):
 
     return recs
 
-# ---------- Main ----------
-
 def main():
     parser = argparse.ArgumentParser(description="Analyze ML model structure")
     parser.add_argument("model_file", help="Path to model file")
@@ -272,3 +254,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
