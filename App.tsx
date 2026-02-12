@@ -4,7 +4,7 @@ import NetworkVisualizer from './components/NetworkVisualizer';
 import ModelInfo from './components/ModelInfo';
 
 import DiagnosticLab from './components/DiagnosticLab';
-import { analyzeModelFile } from './services/geminiService';
+import { analyzeModelFile } from './services/aiService';
 import { ModelArchitecture, FileMetadata } from './types';
 
 type Page = 'workspace' | 'library' | 'lab' | 'docs';
