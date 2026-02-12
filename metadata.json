@@ -1,0 +1,5 @@
+{
+  "name": "NeuralInsight AI",
+  "description": "An advanced model analysis and neural network visualization platform. Upload your trained model files and let AI deconstruct their architecture, identify their purpose, and render an interactive, animated neural network graph.",
+  "requestFramePermissions": []
+}
