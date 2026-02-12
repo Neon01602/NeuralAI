@@ -1,17 +1,14 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { ModelArchitecture, FileMetadata } from "../types";
 
-const apiKey = import.meta.env.MODEL;
+const model = import.meta.env.MODEL;
 
-if (!apiKey) {
+if (!model) {
   throw new Error("MODEL not defined");
 }
 
-const ai = new GoogleGenAI({ apiKey });
+const ai = new GoogleGenAI({ model });
 
-/**
- * Safe fallback architecture so UI never dies
- */
 const fallbackArchitecture = (file: FileMetadata): ModelArchitecture => ({
   name: file.name || "Unknown Model",
   type: "Unknown",
@@ -108,9 +105,7 @@ If file content is unknown, infer from the name.
       }
     });
 
-    /**
-     * Extract text safely
-     */
+
     let rawText =
       response?.text ||
       response?.candidates?.[0]?.content?.parts?.[0]?.text ||
@@ -118,9 +113,7 @@ If file content is unknown, infer from the name.
 
     console.log("RAW AI RESPONSE:", rawText);
 
-    /**
-     * Clean markdown wrappers
-     */
+
     rawText = rawText
       .replace(/```json/g, "")
       .replace(/```/g, "")
@@ -131,9 +124,7 @@ If file content is unknown, infer from the name.
       return fallbackArchitecture(file);
     }
 
-    /**
-     * Parse JSON safely
-     */
+  
     const parsed = JSON.parse(rawText);
 
     console.log("✅ Parsed AI architecture:", parsed);
